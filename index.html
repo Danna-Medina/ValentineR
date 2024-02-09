@@ -31,18 +31,19 @@
         
         .typing-container {
             position: absolute;
-            top: calc(70% + 20px); /* Coloca el elemento 20px debajo del contenedor de la matriz */
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 24px;
+            top: calc(65%); /* Ajusta según sea necesario */
+            left: 40%;
+            transform: translateX(-40%);
+            max-width: 100%; /* Ancho máximo del elemento */
+            font-size: 30px;
             text-align: center;
             font-family: 'Courier New', Courier, monospace;
             color: #1e90ff;
             animation: typing 3s;
             opacity: 0;
             animation-delay: 1s;
+            overflow: hidden; /* Evita que el texto se desborde del elemento */
         }
-
         @keyframes fadeIn {
             0% {
                 opacity: 0;
