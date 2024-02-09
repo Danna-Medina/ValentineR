@@ -221,6 +221,9 @@ function reproducirAudio() {
     var audio = document.getElementById("mi-audio");
     if (audio.paused) {
         audio.play();
+    } else {
+        var reproductor = document.querySelector(".reproductor-audio");
+        reproductor.click();
     }
 }
 
