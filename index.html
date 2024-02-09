@@ -8,17 +8,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-
             margin: 3%;
             padding: 0;
         }
-        
+
         .container {
             width: 100%;
             height:  100%;
             position: relative;
         }
-        
+
         .pixel {
             width: 8px;
             height: 8px;
@@ -28,7 +27,6 @@
             animation: fadeIn 0.2s forwards;    
         }
 
-        
         .typing-container {
             position: absolute;
             top: calc(65%); /* Ajusta según sea necesario */
@@ -44,6 +42,7 @@
             animation-delay: 1s;
             overflow: hidden; /* Evita que el texto se desborde del elemento */
         }
+
         @keyframes fadeIn {
             0% {
                 opacity: 0;
@@ -86,7 +85,6 @@
             }
         }
 
-
         .reproductor-audio {
             width: 3%;
             height: 5%;
@@ -110,7 +108,32 @@
         #mi-audio:not([paused]) + .reproductor-audio #play-icon {
             transform: scaleX(0);
         }
-        
+
+        /* Consultas de medios para dispositivos móviles */
+        @media screen and (max-width: 768px) {
+            .container {
+                max-width: 100%;
+            }
+            .typing-container {
+                top: calc(100%); /* Ajusta según sea necesario */
+                left: 40%;
+                transform: translateX(-40%);
+                font-size: 2px; /* Reducir aún más el tamaño de fuente para dispositivos móviles */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                max-width: 90%; /* Reduce el ancho máximo en dispositivos móviles */
+            }
+            .typing-container {
+                top: calc(65%); /* Ajusta según sea necesario */
+                left: 40%;
+                transform: translateX(-40%);
+                font-size: 2px; /* Reducir aún más el tamaño de fuente para dispositivos móviles */
+            }
+        }
+                
     </style>
 </head>
 <body onload="reproducirAudio()">
@@ -271,7 +294,7 @@ function pausarAudio() {
 const typingContainer = document.querySelector('.typing-container');
         const typingText = typingContainer.querySelector('.typing-text');
         const typingDelay = 100;
-        const message = 'AQUI HAY UN MENSAJE MUY RANDOM ALSJDFÑLAKSJDFÑLAKSJDFÑLKAJSDFÑLKAJDSFÑKLAJÑSDFLKJ ALKSDJFÑALKSJDFLKAJSDÑFLK AJÑSDLKFJA ASLKDFJÑALSKDJFÑALKSDJ ALKSDJF ALKSDJF AKJ ÑLAKSDJ LKAJSDF LKJAS KJASÑFKJ AÑSLDKFJASLKDFJ ';
+        const message = 'Hola Preciosa <3\n Me gusta mucho hacer este tipo de cosas para ti\n realmente trato de encontrar muchas formas de hacerte sentir especial.\n Sin duda me gusta mucho pasar tiempo contigo, no importa el "cómo"\n solo sé que me haces sonreir bastante.\n\n Hoy tengo un San Valentin bonito y especial porque te tengo a ti.';
 
         setTimeout(() => {
             typingContainer.style.opacity = 1;
