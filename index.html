@@ -4,7 +4,7 @@
     <title>Pixel Art</title>
     <style>
         body {
-            background-color:  #edf7ff ;           
+            background-color:  #e3cedc ;           
             display: flex;
             align-items: center;
             justify-content: center;
@@ -63,7 +63,7 @@
 </head>
 <body>
 
-    <audio id="mi-audio" controls autoplay>
+    <audio id="mi-audio" controls>
         <source src="Sweet.mp3">
         Tu navegador no soporta la reproducción de audio.
     </audio>
@@ -181,6 +181,13 @@
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ];
         
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var audio = document.getElementById("mi-audio");
+            audio.play();
+        });
+
+
         showHeart();
 
 function showHeart() {
