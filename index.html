@@ -28,11 +28,40 @@
             animation: fadeIn 0.2s forwards;    
         }
 
+        
+        .typing-container {
+            position: absolute;
+            top: calc(70% + 20px); /* Coloca el elemento 20px debajo del contenedor de la matriz */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            color: #1e90ff;
+            animation: typing 3s;
+            opacity: 0;
+            animation-delay: 1s;
+        }
+
         @keyframes fadeIn {
             0% {
                 opacity: 0;
             }
             100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes typing {
+            0% {
+                transform: translateX(-50%) scale(0.8);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-50%) scale(1);
                 opacity: 1;
             }
         }
@@ -58,28 +87,28 @@
 
 
         .reproductor-audio {
-    width: 50px;
-    height: 50px;
-    background-color: #f0f0f0;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
+            width: 3%;
+            height: 5%;
+            background-color: #e3cedc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
 
-#play-icon {
-    width: 0;
-    height: 0;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-left: 20px solid #000;
-    transition: transform 0.3s;
-}
+        #play-icon {
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 20px solid #9576c7;
+            transition: transform 0.3s;
+        }
 
-#mi-audio:not([paused]) + .reproductor-audio #play-icon {
-    transform: scaleX(0);
-}
+        #mi-audio:not([paused]) + .reproductor-audio #play-icon {
+            transform: scaleX(0);
+        }
         
     </style>
 </head>
@@ -97,6 +126,10 @@
 
     <div class="container">
         <div class="lana-container"></div>
+    </div>
+
+    <div class="typing-container">
+        <div class="typing-text"></div>
     </div>
     
     <script>
@@ -233,6 +266,28 @@ function pausarAudio() {
         audio.pause();
     }
 }
+
+const typingContainer = document.querySelector('.typing-container');
+        const typingText = typingContainer.querySelector('.typing-text');
+        const typingDelay = 100;
+        const message = 'Hola Preciosa <3\n Me gusta mucho hacer este tipo de cosas para ti\n realmente trato de encontrar muchas formas hacer cosas especiales para ti.\n Sin duda me gusta mucho pasar tiempo contigo, no importa el "cómo"\n solo sé que me haces sonreir bastante.\n\n Hoy tengo un San Valentin bonito y especial porque te tengo a ti.';
+
+        setTimeout(() => {
+            typingContainer.style.opacity = 1;
+            typeMessage(message);
+        }, 2000);
+
+        function typeMessage(message) {
+            let i = 0;
+            const typingInterval = setInterval(() => {
+                typingText.textContent += message[i];
+                i++;
+                if (i === message.length) {
+                    clearInterval(typingInterval);
+                    showHeart();
+                }
+            }, typingDelay);
+        }
 
 
         showHeart();
